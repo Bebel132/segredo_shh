@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .parabens {
+            position: absolute;
+            background-color: white;
+            margin: auto;
+            left: 0;
+            right: 0;
+            bottom: 50%; 
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .parabens__img {
+            width: 100px;
+        }
+
+        #my-canvas {
+            width: 100%;
+            height: 100vh;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .hidden img {
+            width: 300px;
+            margin: auto;
+        }
+
+        .popup-visible {
+            position: absolute;
+            display: block;
+            width: 300px;
+            height: 110vh;
+            margin: auto;
+            left: 0;
+            right: 0;
+            border-radius: 10px;
+            box-shadow: 1px 1px 80px black;
+            padding: 10px;
+            text-align: justify;
+            background-color: white;
+            animation: fadeinout 1s linear 1 forwards;
+        }
+
+        @keyframes fadeinout {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="parabens">
+        <p>Parabéns Kaio!</p>
+        <img src="https://st.depositphotos.com/1001911/1554/v/950/depositphotos_15540341-stock-illustration-thumb-up-emoticon.jpg" alt="" class="parabens__img"><br>
+        <button class="btn">aperte aqui!</button>
+    </div>
+
+    <div class="hidden">
+        <p>Hoje estou aqui lhe enviando esta mensagem para lhe desejar mil felicidades. Desejo que esse dia seja de muitas alegrias e que você realize seus sonhos. <br>
+        <br>
+        Que essa data não seja só para trazer alegrias, mas sim para que à passagem de cada novo ano você possa aprender as lições que a vida lhe oferece. Mesmos as passagens tristes, assim como as alegres sejam passos importantes em sua vida.<br>
+        <br>
+        Que seus sonhos se transformem em coisas reais. Feliz Aniversário, Kaio!</p>
+        <img src="8EbNyti.png" alt="">
+    </div>
+
+    <canvas id="my-canvas"></canvas>
+
+    <script src="index.min.js"></script>
+    <script>
+        var confettiSettings = { target: 'my-canvas' };
+        var confetti = new ConfettiGenerator(confettiSettings);
+        confetti.render();
+
+        let popup = document.querySelector('.hidden');
+        let parabens = document.querySelector('.parabens');
+
+        let btn = document.querySelector('.btn').addEventListener('click', function(){
+            popup.classList.toggle('popup-visible');
+            parabens.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
